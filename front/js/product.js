@@ -79,7 +79,7 @@
         const quantity = getQuantitySelected();                 // Quantité choisie
         let selectProduct = null;
 
-        if (color != "" && quantity != 0){                        // Uniquement si couleur et quantité sont valide
+        if (color != "" && quantity != 0){                       // Uniquement si couleur et quantité sont valide
           selectProduct = createProduct(propertyProduct);         // Création du produit avec ses propriétés sélectionnés en mémoire
           saveDataProductToLocalStorage();                        // On stock les données du produit dans le localStorage
           refreshDefaultValueAfterAddToCart();                    // Recharger valeur par défaut apres ajout au panier
