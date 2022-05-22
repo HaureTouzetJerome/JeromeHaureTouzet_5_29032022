@@ -77,14 +77,16 @@
   
       //Lorsque l'on clique sur le bouton 'Ajouter au panier'
       btnAddToCart.addEventListener("click", (event)=>{
-  
         const color = getColorSelected();                       // Option de couleur choisie
         const quantity = getQuantitySelected();                 // Quantité choisie
-        const selectProduct = createProduct(propertyProduct);   // Création du produit avec ses propriétés sélectionnés en mémoire
-        saveDataProductToLocalStorage();                        // On stock les données du produit dans le localStorage
-        refreshDefaultValueAfterAddToCart();                    // Recharger valeur par défaut apres ajout au panier
-        addToCounterCart(selectProduct);                        // Ajouter produits au compteur du panier
-        
+        let selectProduct = null;
+        if (color != "" && quantity != 0){
+          selectProduct = createProduct(propertyProduct);         // Création du produit avec ses propriétés sélectionnés en mémoire
+          saveDataProductToLocalStorage();                        // On stock les données du produit dans le localStorage
+          refreshDefaultValueAfterAddToCart();                    // Recharger valeur par défaut apres ajout au panier
+          addToCounterCart(selectProduct);                        // Ajouter produits au compteur du panier
+        }
+
         // Obtenir la couleur du produit qui est sélectionnée
         function getColorSelected(){
           const optionColors = document.querySelector(".item__content__settings__color #colors");
